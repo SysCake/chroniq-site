@@ -59,8 +59,9 @@ img { display: block; max-width: 100%; }
   border-bottom: 1px solid rgba(247, 246, 242, 0.18);
 }
 
-.brand { display: inline-flex; align-items: center; gap: 11px; width: max-content; font-size: 18px; font-weight: 650; letter-spacing: -0.02em; }
-.brand img { width: 31px; height: 31px; }
+.brand { display: inline-flex; align-items: center; gap: 11px; width: max-content; }
+.brand > img:first-child { width: 31px; height: 31px; }
+.brand .brand-wordmark { width: 84px; height: auto; filter: brightness(0) invert(1); }
 .site-header nav { display: flex; align-items: center; gap: 30px; color: rgba(247, 246, 242, 0.74); font-size: 14px; }
 .site-header nav a, .footer-links a, .release-notes { transition: color 180ms ease; }
 .site-header nav a:hover { color: var(--warm); }
