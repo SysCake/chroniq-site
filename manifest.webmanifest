@@ -1,0 +1,17 @@
+{
+  "name": "Chroniq",
+  "short_name": "Chroniq",
+  "description": "Meetings, kept close. Next steps, made clear.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#F7F6F2",
+  "theme_color": "#5250D1",
+  "icons": [
+    {
+      "src": "assets/ChroniqAppIcon-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="820"
+     height="220"
+     viewBox="0 0 820 220"
+     role="img"
+     aria-labelledby="title">
+  <title id="title">Chroniq logo and wordmark</title>
+  <image href="ChroniqMark.svg"
+         x="0"
+         y="0"
+         width="220"
+         height="220"
+         preserveAspectRatio="xMidYMid meet"/>
+  <image href="ChroniqWordmark.svg"
+         x="205"
+         y="45"
+         width="600"
+         height="158.560988"
+         preserveAspectRatio="xMidYMid meet"/>
+</svg>
