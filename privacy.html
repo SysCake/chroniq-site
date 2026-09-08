@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#5250d1" />
+    <meta name="description" content="How Chroniq and Syscake S.r.l. handle personal data across the macOS app, Google Drive integration, and website." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Chroniq" />
+    <meta property="og:title" content="Privacy Policy — Chroniq" />
+    <meta property="og:description" content="How Chroniq keeps meeting audio local and handles optional Google integrations." />
+    <meta property="og:url" content="https://chroniq.syscake.it/privacy.html" />
+    <link rel="canonical" href="https://chroniq.syscake.it/privacy.html" />
+    <link rel="icon" href="assets/ChroniqAppIcon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="legal.css" />
+    <title>Privacy Policy — Chroniq</title>
+  </head>
+  <body class="legal-body">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header legal-site-header">
+      <a class="brand" href="./" aria-label="Chroniq home">
+        <img src="assets/ChroniqMarkReversed.svg" alt="" width="34" height="34" />
+        <img class="brand-wordmark" src="assets/ChroniqWordmark.svg" alt="Chroniq" width="86" height="23" />
+      </a>
+      <nav aria-label="Legal navigation">
+        <a href="./">Home</a>
+        <a href="privacy.html" aria-current="page">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+      <a class="header-download" href="https://github.com/SysCake/chroniq-site/releases/latest">Download <span aria-hidden="true">↓</span></a>
+    </header>
+
+    <main id="main">
+      <section class="legal-hero" aria-labelledby="legal-title">
+        <div class="legal-hero-inner">
+          <p class="legal-kicker">Legal · Privacy</p>
+          <h1 id="legal-title">Privacy,<br />kept explicit.</h1>
+          <p class="legal-hero-lead">Chroniq is built around local control. This policy explains what stays on your Mac, what you may choose to send to Google, and what Syscake receives.</p>
+          <p class="legal-meta"><span>Effective September 1, 2026</span><span>Last updated September 1, 2026</span></p>
+        </div>
+      </section>
+
+      <div class="legal-layout">
+        <aside class="legal-nav" aria-label="Privacy policy sections">
+          <p>On this page</p>
+          <ol>
+            <li><a href="#who-we-are">Who we are</a></li>
+            <li><a href="#scope">Scope</a></li>
+            <li><a href="#local-data">Local meeting data</a></li>
+            <li><a href="#google-services">Google services</a></li>
+            <li><a href="#website-support">Website and support</a></li>
+            <li><a href="#purposes">Purposes and legal bases</a></li>
+            <li><a href="#sharing">Sharing and transfers</a></li>
+            <li><a href="#retention">Retention and deletion</a></li>
+            <li><a href="#rights">Your rights</a></li>
+            <li><a href="#security">Security</a></li>
+            <li><a href="#children">Children</a></li>
+            <li><a href="#changes">Changes and contact</a></li>
+          </ol>
+        </aside>
+
+        <article class="legal-article">
+          <section id="who-we-are">
+            <h2>1. Who we are</h2>
+            <p>Chroniq is operated by <strong>Syscake S.r.l.</strong>, Via Quinto Novio 44, 00175 Rome (RM), Italy, VAT and tax identification number 16207441003 (“Syscake”, “we”, “us”).</p>
+            <p>For privacy requests or questions about Chroniq, contact <a href="mailto:chroniq-support@syscake.it">chroniq-support@syscake.it</a>.</p>
+          </section>
+
+          <section id="scope">
+            <h2>2. What this policy covers</h2>
+            <p>This policy applies to the Chroniq macOS application, the website at <a href="https://chroniq.syscake.it/">chroniq.syscake.it</a>, and support communications relating to Chroniq. Chroniq does not require a Chroniq account, and Syscake does not operate a cloud service that stores your meeting archive.</p>
+            <p>Services you choose to use with Chroniq—including Google Gemini, Google Drive, Google Docs, GitHub, and Apple—also process data under their own terms and privacy policies.</p>
+          </section>
+
+          <section id="local-data">
+            <h2>3. Meeting data stored locally</h2>
+            <p>Chroniq records microphone and system audio only after an explicit action. It stores source audio tracks, transcripts, generated artifacts, meeting metadata, processing state, timing metrics, token-usage metrics, and local diagnostic records in locations on your Mac that the application is authorized to use.</p>
+            <ul>
+              <li>Audio transcription runs locally on your Mac.</li>
+              <li>Microphone and system audio are never sent to Gemini or Google Drive.</li>
+              <li>Your local meeting archive is not automatically sent to Syscake.</li>
+              <li>You control the archive location, corrections, regeneration, export, and deletion.</li>
+            </ul>
+            <p>Local diagnostics may include processing events and the complete response returned by Gemini for inspection. These records remain on your Mac unless you deliberately send them to Syscake, for example in a support request.</p>
+          </section>
+
+          <section id="google-services">
+            <h2>4. Optional Google services</h2>
+            <h3>Gemini artifact generation</h3>
+            <p>If you configure a Gemini API key and request generated outcomes, Chroniq sends the current editable transcript and generation instructions directly from your Mac to the Google Gemini API. Google may receive the transcript, generated response, request metadata, IP address, and other technical data needed to provide the service. Your API key is stored in the macOS Keychain. Audio is not sent.</p>
+            <h3>Google Drive document publishing</h3>
+            <p>If you connect Google Drive, select a destination folder, acknowledge the disclosure, and enable publishing, Chroniq sends meeting titles, generated artifacts, transcripts, meeting metadata, processing timings, and token-usage metrics directly to Google Drive and Google Docs. Chroniq requests only the <code>drive.file</code> permission, which limits access to files you select for, open with, or create through Chroniq.</p>
+            <p>Chroniq stores the Google refresh token in the macOS Keychain and holds short-lived access tokens in memory. Non-secret folder and publishing state is stored locally. Disconnecting removes the local refresh token and attempts to revoke it, disables automation, and does not delete documents already created in your Drive.</p>
+            <div class="legal-callout">
+              <p><strong>Google API Limited Use.</strong></p>
+              <p>Chroniq’s use of information received from Google Workspace APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including its Limited Use requirements. We do not sell Google user data, use it for advertising, or use it to train generalized artificial-intelligence models.</p>
+            </div>
+          </section>
+
+          <section id="website-support">
+            <h2>5. Website and support data</h2>
+            <p>The Chroniq website does not use analytics, advertising trackers, cookies, accounts, or contact forms. It is hosted through GitHub Pages and obtains current release data from GitHub’s public API. When you visit the site or download a release, GitHub may process ordinary network and device data such as your IP address, user agent, request, and timestamp under GitHub’s privacy policy.</p>
+            <p>If you contact support, we receive the contact details, message, attachments, and any diagnostic or meeting information you choose to provide. Please avoid sending meeting content unless it is necessary for your request and you are authorized to disclose it.</p>
+          </section>
+
+          <section id="purposes">
+            <h2>6. Purposes and legal bases</h2>
+            <p>Where Syscake receives personal data, we process it only as necessary to:</p>
+            <ul>
+              <li>provide the website and respond to support requests, based on performing a contract or taking steps at your request;</li>
+              <li>secure, maintain, and troubleshoot Chroniq, based on our legitimate interests in operating a reliable product;</li>
+              <li>meet legal, tax, accounting, security, and compliance obligations; and</li>
+              <li>process data based on consent where applicable, which you may withdraw at any time without affecting earlier lawful processing.</li>
+            </ul>
+            <p>Chroniq’s local processing and direct Google API actions are initiated and controlled by you. You are responsible for having an appropriate legal basis to record participants and process meeting content.</p>
+          </section>
+
+          <section id="sharing">
+            <h2>7. Recipients and international transfers</h2>
+            <p>We do not sell personal data. Data may be processed by service providers acting for us, including email and infrastructure providers, or disclosed where required by law, to protect rights and security, or in connection with a corporate transaction subject to appropriate safeguards.</p>
+            <p>Google and GitHub may process data in countries outside the European Economic Area. Their own privacy terms describe the applicable transfer mechanisms. When Syscake uses processors outside the EEA, we use an available lawful transfer mechanism, such as an adequacy decision or standard contractual clauses, where required.</p>
+          </section>
+
+          <section id="retention">
+            <h2>8. Retention, controls, and deletion</h2>
+            <ul>
+              <li>Local meetings, audio, artifacts, and diagnostics remain until you delete them or remove the relevant local data.</li>
+              <li>Google documents remain in your Drive until you delete them under your Google account’s controls.</li>
+              <li>Google authorization remains until you disconnect Chroniq, revoke access in your Google Account, or Google expires or revokes it.</li>
+              <li>Support communications are retained only as long as reasonably necessary to resolve the request, maintain business records, and comply with law.</li>
+              <li>GitHub determines retention for website and download service logs under its own policies.</li>
+            </ul>
+            <p>You can delete local meetings in Chroniq or Finder, remove configured API keys in Settings, disconnect Google Drive in Settings, delete published documents in Drive, and revoke Chroniq from your Google Account’s third-party access controls.</p>
+          </section>
+
+          <section id="rights">
+            <h2>9. Your data-protection rights</h2>
+            <p>Subject to applicable law, you may ask Syscake to access, correct, erase, restrict, or provide a portable copy of personal data we control, or object to particular processing. You may withdraw consent where processing depends on it. We may need to verify your identity and may retain information when the law permits or requires it.</p>
+            <p>You may also complain to the Italian Data Protection Authority (Garante per la protezione dei dati personali) or the supervisory authority where you live or work. Most meeting content is stored locally or in services under your control, so the fastest route is usually to use the deletion and revocation controls described above.</p>
+          </section>
+
+          <section id="security">
+            <h2>10. Security</h2>
+            <p>Chroniq uses the macOS App Sandbox, Keychain storage for credentials, least-privilege Google scopes, explicit authorization, and local durable storage boundaries. No method of storage or transmission is completely secure. You are responsible for protecting your Mac, archive location, backups, Google account, and API credentials.</p>
+          </section>
+
+          <section id="children">
+            <h2>11. Children</h2>
+            <p>Chroniq is a professional productivity tool and is not directed to children under 16. Do not use it to collect a child’s personal data unless you have all authorization and consent required by applicable law.</p>
+          </section>
+
+          <section id="changes">
+            <h2>12. Changes and contact</h2>
+            <p>We may update this policy when Chroniq, our providers, or applicable requirements change. We will publish the updated policy here and revise the date above. Material changes may also be communicated in the application or release notes where appropriate.</p>
+            <div class="legal-contact">
+              <strong>Syscake S.r.l.</strong>
+              <span>Via Quinto Novio 44 · 00175 Rome (RM) · Italy</span>
+              <span>VAT and tax ID 16207441003</span>
+              <a href="mailto:chroniq-support@syscake.it">chroniq-support@syscake.it</a>
+            </div>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer class="legal-footer">
+      <a class="footer-brand" href="./" aria-label="Chroniq home"><img src="assets/ChroniqLockup-2x.png" alt="Chroniq" width="205" height="55" /></a>
+      <div class="footer-links">
+        <a href="privacy.html" aria-current="page">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="mailto:chroniq-support@syscake.it">Support</a>
+      </div>
+      <a class="syscake-credit" href="https://syscake.it/" target="_blank" rel="noopener noreferrer" aria-label="Made with love by Syscake. Visit Syscake website.">
+        <span>Made with love by Syscake ❤️</span><img src="assets/SyscakeLogoWhite.svg" alt="Syscake" width="136" height="40" />
+      </a>
+      <p class="copyright">© 2026 Syscake S.r.l. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

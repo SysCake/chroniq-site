@@ -87,3 +87,20 @@ window.addEventListener(
 );
 
 resolveLatestRelease();
+
+// Preview the application's real appearance without changing the site's palette.
+const appearanceButtons = [...document.querySelectorAll("[data-preview-appearance]")];
+appearanceButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const appearance = button.dataset.previewAppearance;
+    if (!["light", "dark"].includes(appearance)) return;
+    appearanceButtons.forEach((option) => {
+      option.setAttribute("aria-pressed", String(option.dataset.previewAppearance === appearance));
+    });
+    document.querySelectorAll("[data-screenshot]").forEach((image) => {
+      const source = `assets/${image.dataset.screenshot}-${appearance}.png`;
+      image.src = source;
+      image.closest("a").href = source;
+    });
+  });
+});

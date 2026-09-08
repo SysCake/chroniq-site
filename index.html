@@ -83,86 +83,17 @@
           </p>
         </div>
 
-        <div class="product-stage" data-product-stage>
-          <div class="app-window" role="img" aria-label="Chroniq meeting workspace showing a completed meeting summary">
-            <div class="window-bar">
-              <div class="traffic-lights"><i></i><i></i><i></i></div>
-              <span>Chroniq</span>
-              <div class="window-actions"><i></i><i></i></div>
-            </div>
-            <div class="workspace">
-              <aside class="workspace-sidebar">
-                <div class="sidebar-heading"><strong>Meetings</strong><span>↻</span></div>
-                <div class="search-field">⌕&nbsp;&nbsp;Search meetings</div>
-                <p class="date-label">Today</p>
-                <div class="meeting-row active">
-                  <span class="status-dot"></span>
-                  <div><strong>Release readiness review</strong><small>42 min · Ready</small></div>
-                </div>
-                <div class="meeting-row">
-                  <span class="status-dot quiet"></span>
-                  <div><strong>Product direction</strong><small>28 min · Ready</small></div>
-                </div>
-                <div class="meeting-row">
-                  <span class="status-dot quiet"></span>
-                  <div><strong>Engineering sync</strong><small>51 min · Ready</small></div>
-                </div>
-              </aside>
-
-              <div class="workspace-main">
-                <div class="meeting-header">
-                  <div>
-                    <p>Friday, August 7 · 42 min</p>
-                    <h2>Release readiness review</h2>
-                  </div>
-                  <button type="button" tabindex="-1">•••</button>
-                </div>
-                <div class="workspace-tabs" aria-hidden="true">
-                  <span class="active">Overview</span><span>Transcript</span><span>Processing</span>
-                </div>
-                <div class="outcome-layout">
-                  <article class="summary-block">
-                    <p class="eyebrow">Summary</p>
-                    <h3>A focused path to release</h3>
-                    <p>
-                      The team confirmed the production checklist, aligned on the remaining
-                      validation work, and assigned clear owners before launch.
-                    </p>
-                    <div class="keyline"></div>
-                    <p class="eyebrow">Key points</p>
-                    <ul>
-                      <li>Production package is signed and notarized</li>
-                      <li>Privacy boundaries remain explicit</li>
-                      <li>Final hardware validation has named owners</li>
-                    </ul>
-                  </article>
-                  <aside class="action-block">
-                    <div class="action-heading"><p class="eyebrow">Action items</p><span>3</span></div>
-                    <label><input type="checkbox" tabindex="-1" /> Verify the clean-machine install</label>
-                    <label><input type="checkbox" checked tabindex="-1" /> Review release metadata</label>
-                    <label><input type="checkbox" tabindex="-1" /> Complete the audio matrix</label>
-                    <div class="publish-state">
-                      <span class="drive-glyph">▰</span>
-                      <div><strong>Published to Google Drive</strong><small>Moments ago</small></div>
-                      <span>✓</span>
-                    </div>
-                  </aside>
-                </div>
-              </div>
-            </div>
+        <figure class="product-stage" data-product-stage>
+          <div class="preview-controls" role="group" aria-label="Workspace screenshot appearance">
+            <span>App appearance</span>
+            <button type="button" data-preview-appearance="light" aria-pressed="true">Light</button>
+            <button type="button" data-preview-appearance="dark" aria-pressed="false">Dark</button>
           </div>
-
-          <div class="recording-panel" data-recording-panel>
-            <div class="recording-status">
-              <span class="recording-dot"></span>
-              <div><strong>Recording</strong><small>Release readiness review</small></div>
-              <time>42:17</time>
-            </div>
-            <div class="audio-track"><span>Microphone</span><i></i><i></i><i></i><i></i><i></i><i></i><b>Active</b></div>
-            <div class="audio-track"><span>System audio</span><i></i><i></i><i></i><i></i><i></i><i></i><b>Active</b></div>
-            <button type="button" tabindex="-1">■&nbsp;&nbsp;Stop Recording</button>
-          </div>
-        </div>
+          <a href="assets/workspace-light.png" aria-label="View full-size Chroniq workspace screenshot">
+            <img data-screenshot="workspace" class="product-screenshot" src="assets/workspace-light.png" alt="The real Chroniq review workspace showing a synthetic Northstar design review, with summary, key points, decisions, and action items." width="2880" height="2200" fetchpriority="high" />
+          </a>
+          <figcaption>Chroniq for macOS · Example meeting with fictional content</figcaption>
+        </figure>
       </section>
 
       <section class="principle-band" aria-label="Chroniq principles">
@@ -216,30 +147,17 @@
           <p>Edit the source, correct the title, and regenerate deliberately. Nothing is hidden behind an opaque workflow.</p>
         </header>
 
-        <div class="outcome-rail" data-outcome-rail>
-          <article class="outcome-panel transcript-panel reveal">
-            <div class="panel-top"><span>Editable transcript</span><span>Read&nbsp;&nbsp; Edit</span></div>
-            <div class="transcript-line"><strong>You</strong><p>Let’s make the privacy boundary unmistakable.</p><time>18:42</time></div>
-            <div class="transcript-line"><strong>Meeting</strong><p>Audio stays local. Only the corrected transcript moves forward.</p><time>18:49</time></div>
-            <div class="transcript-line"><strong>You</strong><p>And Drive publishing remains optional and explicit.</p><time>19:01</time></div>
-          </article>
-
-          <article class="outcome-panel decisions-panel reveal">
-            <div class="panel-top"><span>Decisions</span><span>Current</span></div>
-            <ol>
-              <li><span>01</span><p>Keep audio local through every processing stage.</p></li>
-              <li><span>02</span><p>Publish only Chroniq-owned document content.</p></li>
-              <li><span>03</span><p>Make retries and regeneration explicit.</p></li>
-            </ol>
-          </article>
-
-          <article class="outcome-panel actions-panel reveal">
-            <div class="panel-top"><span>Action items</span><span>2 open</span></div>
-            <label><input type="checkbox" checked tabindex="-1" /><span>Review generated summary<small>Completed</small></span></label>
-            <label><input type="checkbox" tabindex="-1" /><span>Share release document<small>Marcello · Friday</small></span></label>
-            <label><input type="checkbox" tabindex="-1" /><span>Confirm final validation<small>Engineering · Friday</small></span></label>
-          </article>
-        </div>
+        <figure class="workspace-detail reveal">
+          <div class="preview-controls" role="group" aria-label="Transcript screenshot appearance">
+            <span>App appearance</span>
+            <button type="button" data-preview-appearance="light" aria-pressed="true">Light</button>
+            <button type="button" data-preview-appearance="dark" aria-pressed="false">Dark</button>
+          </div>
+          <a href="assets/transcript-light.png" aria-label="View full-size Chroniq transcript screenshot">
+            <img data-screenshot="transcript" src="assets/transcript-light.png" alt="Chroniq’s actual transcript view with You and Meeting speaker labels, search, editing, and regeneration controls. Fictional meeting content." width="2880" height="2200" loading="lazy" />
+          </a>
+          <figcaption>Actual application interface. All meeting content shown is fictional.</figcaption>
+        </figure>
       </section>
 
       <section class="publishing-section" id="publishing">
@@ -250,6 +168,11 @@
             Connect Google, choose the folder, acknowledge what will be shared,
             and enable automation explicitly. Chroniq updates only the document tabs it owns.
           </p>
+          <p class="publishing-legal">
+            Learn how Google data is handled in our
+            <a href="privacy.html">Privacy Policy</a> and review the
+            <a href="terms.html">Terms of Service</a>.
+          </p>
           <ul>
             <li><span>✓</span> One document per meeting</li>
             <li><span>✓</span> Summary, key points, decisions, and actions</li>
@@ -257,22 +180,21 @@
           </ul>
         </div>
 
-        <div class="document-visual reveal" role="img" aria-label="Chroniq meeting document published to a selected Google Drive folder">
-          <div class="document-toolbar">
-            <span class="document-icon">▤</span>
-            <div><strong>Release readiness review</strong><small>Saved to Meeting notes</small></div>
-            <span class="saved-state">Saved to Drive&nbsp;&nbsp;✓</span>
-          </div>
-          <div class="document-tabs"><span class="active">Summary</span><span>Key points</span><span>Decisions</span><span>Action items</span><span class="user-tab">Team notes</span></div>
+        <figure class="document-visual reveal" aria-label="Illustration of the formatted document content published by Chroniq">
+          <figcaption>One Google Doc · Artifacts, Transcript, Metadata &amp; Metrics</figcaption>
           <div class="document-page">
-            <p class="document-kicker">CHRONIQ · AUGUST 7, 2026</p>
-            <h3>Release readiness review</h3>
-            <p class="document-lead">The team aligned on a focused path to release and confirmed the remaining validation owners.</p>
-            <hr />
-            <h4>What matters now</h4>
-            <p>Complete clean-machine validation, preserve the explicit privacy boundary, and publish only after the final evidence is durable.</p>
+            <h3>Northstar design review</h3>
+            <p class="document-subtitle">Artifacts</p>
+            <h4>Summary</h4>
+            <p>The team reviewed the Northstar prototype and agreed to focus the next iteration on a clearer first-run experience.</p>
+            <h4>Key Points</h4>
+            <ul><li>Navigation helped participants find their projects quickly.</li><li>First-run guidance should offer one clear next step.</li></ul>
+            <h4>Decisions</h4>
+            <ul><li>Test the revised prototype with five new participants.</li></ul>
+            <h4>Action Items</h4>
+            <ul><li>Prepare the updated prototype — Alex, Thursday.</li></ul>
           </div>
-        </div>
+        </figure>
       </section>
 
       <section class="control-section">
@@ -313,9 +235,10 @@
         <img src="assets/ChroniqLockup-2x.png" alt="Chroniq" width="205" height="55" />
       </a>
       <div class="footer-links">
-        <a href="#privacy">Privacy</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
         <a href="https://github.com/SysCake/chroniq-site/releases/latest">Releases</a>
-        <a href="mailto:info@syscake.it">Contact</a>
+        <a href="mailto:chroniq-support@syscake.it">Support</a>
       </div>
       <a
         class="syscake-credit"
