@@ -1,54 +1,5 @@
-const RELEASE_REPOSITORY = "SysCake/chroniq-site";
-const RELEASE_API = `https://api.github.com/repos/${RELEASE_REPOSITORY}/releases/latest`;
-const RELEASE_FALLBACK = `https://github.com/${RELEASE_REPOSITORY}/releases/latest`;
-const CANONICAL_ASSET = /^Chroniq-(\d+\.\d+\.\d+)-macOS-arm64\.zip$/;
-const LEGACY_ASSET = /^Chroniq-(\d+\.\d+\.\d+)\.zip$/;
-
 document.documentElement.classList.add("js");
 requestAnimationFrame(() => document.documentElement.classList.add("is-ready"));
-
-const releaseLinks = [...document.querySelectorAll("[data-release-link]")];
-const releaseLabels = [...document.querySelectorAll("[data-release-label]")];
-const releaseMeta = document.querySelector("[data-release-meta]");
-
-function preferredAsset(assets = []) {
-  return (
-    assets.find((asset) => CANONICAL_ASSET.test(asset.name)) ??
-    assets.find((asset) => LEGACY_ASSET.test(asset.name))
-  );
-}
-
-async function resolveLatestRelease() {
-  try {
-    const response = await fetch(RELEASE_API, {
-      headers: { Accept: "application/vnd.github+json" },
-    });
-    if (!response.ok) throw new Error(`GitHub returned ${response.status}`);
-
-    const release = await response.json();
-    const asset = preferredAsset(release.assets);
-    if (!asset?.browser_download_url) throw new Error("No supported Chroniq release asset");
-
-    const match = asset.name.match(CANONICAL_ASSET) ?? asset.name.match(LEGACY_ASSET);
-    const version = match?.[1] ?? release.tag_name?.replace(/^v/, "");
-
-    releaseLinks.forEach((link) => {
-      link.href = asset.browser_download_url;
-      link.dataset.releaseResolved = "true";
-    });
-    releaseLabels.forEach((label) => {
-      label.textContent = version ? `Download Chroniq ${version}` : "Download latest release";
-    });
-    if (releaseMeta && version) {
-      releaseMeta.textContent = `Chroniq ${version} · macOS 15+ · Apple silicon · Signed and notarized`;
-    }
-  } catch (error) {
-    releaseLinks.forEach((link) => {
-      link.href = RELEASE_FALLBACK;
-      link.dataset.releaseResolved = "false";
-    });
-  }
-}
 
 const revealObserver = new IntersectionObserver(
   (entries, observer) => {
@@ -86,7 +37,7 @@ window.addEventListener(
   { passive: true },
 );
 
-resolveLatestRelease();
+
 
 // Preview the application's real appearance without changing the site's palette.
 const appearanceButtons = [...document.querySelectorAll("[data-preview-appearance]")];
