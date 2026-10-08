@@ -28,7 +28,7 @@
         <a href="privacy.html">Privacy</a>
         <a href="terms.html" aria-current="page">Terms</a>
       </nav>
-      <a class="header-download" data-release-link href="https://github.com/SysCake/chroniq-site/releases/download/v0.3.2/Chroniq-0.3.2-macOS-arm64.zip"><span data-release-label="compact">Download 0.3.2</span> <span aria-hidden="true">↓</span></a>
+      <a class="header-download" data-release-link href="https://github.com/SysCake/chroniq-site/releases/download/v0.4.0/Chroniq-0.4.0-macOS-arm64.dmg"><span data-release-label="compact">Download 0.4.0</span> <span aria-hidden="true">↓</span></a>
     </header>
 
     <main id="main">
@@ -37,7 +37,7 @@
           <p class="legal-kicker">Legal · Terms</p>
           <h1 id="legal-title">Clear terms.<br />Deliberate use.</h1>
           <p class="legal-hero-lead">These terms describe your rights and responsibilities when using Chroniq, including recording meetings and connecting optional third-party services.</p>
-          <p class="legal-meta"><span>Effective September 1, 2026</span><span>Last updated September 1, 2026</span></p>
+          <p class="legal-meta"><span>Effective September 16, 2026</span><span>Last updated October 8, 2026</span></p>
         </div>
       </section>
 
@@ -98,12 +98,13 @@
           <section id="third-parties">
             <h2>6. Optional third-party services</h2>
             <p>Chroniq can make direct, user-directed requests to Google Gemini, Google Drive, and Google Docs. You choose whether to configure and use those services and are responsible for your accounts, API keys, charges, permissions, administrator policies, and compliance with the provider’s terms. Syscake does not control their availability, output, retention, or security.</p>
+            <p>Chroniq requires Apple silicon and macOS 15 or later. Live transcription through Apple SpeechTranscriber requires macOS 26 or later and installed language assets. NVIDIA Parakeet transcription after recording requires an explicit model download. Local artifact generation uses compatible GGUF models with llama.cpp. Model search and downloads contact Hugging Face and its delivery providers; Apple manages SpeechTranscriber asset downloads. Models have their own licenses and usage conditions. Review the displayed source and license before use. The llama.cpp runtime is an independent open-source project; Apple does not supply it or endorse community model weights. Chroniq does not convert arbitrary models or guarantee equivalent results across engines.</p>
             <p>The website and release downloads are provided through GitHub, and the application depends on Apple platform services. Third-party terms may apply independently of these Terms.</p>
           </section>
 
           <section id="drive">
             <h2>7. Google Drive publishing</h2>
-            <p>Drive publishing is optional. After you connect Google, select a folder, acknowledge the disclosure, and enable automation, Chroniq may create or update one Google Doc for an eligible meeting. The document may contain the meeting title, generated artifacts, transcript, metadata, processing timings, and token-usage metrics. <strong>Chroniq never uploads meeting audio.</strong></p>
+            <p>Drive publishing is optional and independent of the selected artifact provider, including local llama.cpp models. After you connect Google, select a folder, acknowledge the disclosure, and enable automation, Chroniq may create or update one Google Doc for an eligible meeting. The document may contain the meeting title, generated artifacts, transcript, metadata, processing timings, and token-usage metrics. <strong>Chroniq never uploads meeting audio.</strong></p>
             <p>Chroniq updates only its owned document tabs and is designed to preserve user-created tabs. You remain responsible for the destination folder, sharing settings, recipients, content, and deletion of published documents. Disconnecting Chroniq stops future access but does not delete documents already created in your Google Drive.</p>
           </section>
 

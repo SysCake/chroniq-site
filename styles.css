@@ -302,3 +302,9 @@ footer { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center
 .preview-controls button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--warm); }
 .product-stage .preview-controls button[aria-pressed="true"] { background: var(--warm); border-color: var(--warm); color: var(--indigo); }
 html:not(.js) .preview-controls { display: none; }
+
+/* Native disclosure semantics with a generous, full-width heading target. */
+.faq-list { max-width: 900px; margin: 36px auto 0; }
+.faq-list details { border-top: 1px solid var(--line, rgba(23, 23, 32, .15)); padding: 0 0 18px; }
+.faq-list summary { cursor: pointer; padding: 22px 0 8px; font-size: 19px; font-weight: 600; }
+.faq-list p { max-width: 760px; line-height: 1.65; color: var(--muted, #64636d); margin: 12px 0 0; }
