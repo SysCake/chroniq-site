@@ -1,5 +1,4 @@
 document.documentElement.classList.add("js");
-requestAnimationFrame(() => document.documentElement.classList.add("is-ready"));
 
 const revealObserver = new IntersectionObserver(
   (entries, observer) => {
@@ -9,49 +8,24 @@ const revealObserver = new IntersectionObserver(
       observer.unobserve(entry.target);
     });
   },
-  { rootMargin: "0px 0px -10%", threshold: 0.08 },
+  { rootMargin: "0px 0px -8%", threshold: 0.06 },
 );
-
 document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
 
-const productStage = document.querySelector("[data-product-stage]");
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-function updateProductDepth() {
-  if (!productStage || reduceMotion.matches || window.innerWidth < 761) return;
-  const distance = Math.min(window.scrollY, window.innerHeight);
-  productStage.style.translate = `0 ${distance * 0.045}px`;
-}
-
-let ticking = false;
-window.addEventListener(
-  "scroll",
-  () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      updateProductDepth();
-      ticking = false;
-    });
-  },
-  { passive: true },
-);
-
-
-
-// Preview the application's real appearance without changing the site's palette.
+// Show every screenshot in the chosen app appearance. The site's own palette
+// does not change; the static default is dark and works without JavaScript.
 const appearanceButtons = [...document.querySelectorAll("[data-preview-appearance]")];
-appearanceButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const appearance = button.dataset.previewAppearance;
-    if (!["light", "dark"].includes(appearance)) return;
-    appearanceButtons.forEach((option) => {
-      option.setAttribute("aria-pressed", String(option.dataset.previewAppearance === appearance));
-    });
-    document.querySelectorAll("[data-screenshot]").forEach((image) => {
-      const source = `assets/${image.dataset.screenshot}-${appearance}.png`;
-      image.src = source;
-      image.closest("a").href = source;
-    });
+function showAppearance(appearance) {
+  if (!["light", "dark"].includes(appearance)) return;
+  appearanceButtons.forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.dataset.previewAppearance === appearance));
   });
+  document.querySelectorAll("[data-screenshot]").forEach((image) => {
+    const source = `assets/${image.dataset.screenshot}-${appearance}.png`;
+    image.src = source;
+    image.closest("a").href = source;
+  });
+}
+appearanceButtons.forEach((button) => {
+  button.addEventListener("click", () => showAppearance(button.dataset.previewAppearance));
 });

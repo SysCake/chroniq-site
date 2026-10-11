@@ -3,15 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#5250d1" />
-    <meta name="description" content="How Chroniq and Syscake S.r.l. handle personal data across the macOS app, Google Drive integration, and website." />
+    <meta name="theme-color" content="#131318" />
+    <meta name="description" content="How Chroniq and Syscake S.r.l. handle personal data across the macOS app, optional model providers, Google Drive integration, and website." />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Chroniq" />
     <meta property="og:title" content="Privacy Policy — Chroniq" />
-    <meta property="og:description" content="How Chroniq keeps meeting audio local and handles optional Google integrations." />
+    <meta property="og:description" content="How Chroniq keeps meeting audio local and handles optional model providers and Google integrations." />
     <meta property="og:url" content="https://chroniq.syscake.it/privacy.html" />
     <link rel="canonical" href="https://chroniq.syscake.it/privacy.html" />
-    <link rel="icon" href="assets/ChroniqAppIcon.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/favicon-v2.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" href="assets/favicon-v2-32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="assets/favicon-v2.svg" type="image/svg+xml" sizes="any" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="legal.css" />
     <title>Privacy Policy — Chroniq</title>
@@ -20,15 +22,15 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header legal-site-header">
       <a class="brand" href="./" aria-label="Chroniq home">
-        <img src="assets/ChroniqMarkReversed.svg" alt="" width="34" height="34" />
-        <img class="brand-wordmark" src="assets/ChroniqWordmark.svg" alt="Chroniq" width="86" height="23" />
+        <img src="assets/ChroniqMarkReversed.svg" alt="" width="28" height="28" />
+        <img class="brand-wordmark" src="assets/ChroniqWordmark.svg" alt="Chroniq" width="78" height="21" />
       </a>
       <nav aria-label="Legal navigation">
         <a href="./">Home</a>
         <a href="privacy.html" aria-current="page">Privacy</a>
         <a href="terms.html">Terms</a>
       </nav>
-      <a class="header-download" data-release-link href="https://github.com/SysCake/chroniq-site/releases/download/v0.4.0/Chroniq-0.4.0-macOS-arm64.dmg"><span data-release-label="compact">Download 0.4.0</span> <span aria-hidden="true">↓</span></a>
+      <a class="header-download" data-release-link href="https://github.com/SysCake/chroniq-site/releases/download/v0.4.0/Chroniq-0.4.0-macOS-arm64.dmg"><span data-release-label="compact">Download 0.4.0</span></a>
     </header>
 
     <main id="main">
@@ -36,8 +38,8 @@
         <div class="legal-hero-inner">
           <p class="legal-kicker">Legal · Privacy</p>
           <h1 id="legal-title">Privacy,<br />kept explicit.</h1>
-          <p class="legal-hero-lead">Chroniq is built around local control. This policy explains what stays on your Mac, how local models work, what you may choose to send to Google, and what Syscake receives.</p>
-          <p class="legal-meta"><span>Effective September 16, 2026</span><span>Last updated October 8, 2026</span></p>
+          <p class="legal-hero-lead">Chroniq is built around local control. This policy explains what stays on your Mac, how local models work, what you may choose to send to a model provider or Google, and what Syscake receives.</p>
+          <p class="legal-meta"><span>Effective September 16, 2026</span><span>Last updated October 9, 2026</span></p>
         </div>
       </section>
 
@@ -70,7 +72,7 @@
           <section id="scope">
             <h2>2. What this policy covers</h2>
             <p>This policy applies to the Chroniq macOS application, the website at <a href="https://chroniq.syscake.it/">chroniq.syscake.it</a>, and support communications relating to Chroniq. Chroniq does not require a Chroniq account, and Syscake does not operate a cloud service that stores your meeting archive.</p>
-            <p>Services you choose to use with Chroniq—including Google Gemini, Google Drive, Google Docs, Hugging Face and its download hosts, GitHub, and Apple—also process data under their own terms and privacy policies.</p>
+            <p>Services you choose to use with Chroniq—including Google Gemini, OpenAI, Anthropic, an OpenAI-compatible server you configure, Google Drive, Google Docs, Hugging Face and its download hosts, GitHub, and Apple—also process data under their own terms and privacy policies.</p>
           </section>
 
           <section id="local-data">
@@ -78,11 +80,13 @@
             <p>Chroniq records microphone and system audio only after an explicit action. It stores source audio tracks, transcripts, generated artifacts, meeting metadata, processing state, timing metrics, token-usage metrics, and local diagnostic records in locations on your Mac that the application is authorized to use.</p>
             <ul>
               <li>Audio transcription runs locally on your Mac. Selecting a local GGUF model also keeps artifact generation on this Mac, on macOS 15 or later.</li>
-              <li>Microphone and system audio are never sent to Gemini or Google Drive.</li>
+              <li>Microphone and system audio are never sent to any model provider or to Google Drive.</li>
               <li>Your local meeting archive is not automatically sent to Syscake.</li>
               <li>You control the archive location, corrections, regeneration, export, and deletion.</li>
             </ul>
-            <p>Ordinary diagnostics contain processing events and timing information without meeting text. A dedicated local provider-response ledger stores the complete response returned by Gemini for inspection. Local generation plans and validated section evidence are stored with the meeting archive; reasoning traces are not retained. These records remain on your Mac unless you deliberately send them to Syscake, for example in a support request.</p>
+            <p>Ordinary diagnostics contain processing events and timing information without meeting text. A dedicated local provider-response ledger stores the complete response returned by Gemini for inspection; for OpenAI, Anthropic and OpenAI-compatible servers, Chroniq keeps only normalized metadata such as timings, token counts and error categories. Local generation plans and validated section evidence are stored with the meeting archive; reasoning traces are not retained. These records remain on your Mac unless you deliberately send them to Syscake, for example in a support request.</p>
+            <h3>Recording reminders</h3>
+            <p>Recording reminders are off by default. If you turn them on, Chroniq checks once a second, on your Mac, which applications are using a microphone input, using metadata provided by macOS. It never opens an audio device, reads audio, or starts recording without your action. Chroniq stores your reminder preference, the applications you choose to ignore, and short-lived timing information needed to avoid repeated reminders in its local preferences. It keeps no history of observed applications and sends nothing to Syscake.</p>
           </section>
 
           <section id="google-services">
@@ -93,6 +97,8 @@
             <p>Public Hugging Face search and model downloads use the internet. The host and its delivery providers may receive your IP address, the requested repository and files, search query, and other ordinary network data. These requests do not upload your meeting content. Chroniq stores downloaded models, partial downloads, file checksums, licenses, and source revisions in local Application Support. Local imports are copied there without changing the original files. You can remove managed models in Settings. The llama.cpp runtime is an independent open-source project; model weights are supplied by their respective publishers. Apple language-asset downloads are handled by macOS.</p>
             <h3>Gemini artifact generation</h3>
             <p>If you select Gemini, configure its API key, acknowledge its disclosure, and request generated outcomes, Chroniq sends the current editable transcript and generation instructions directly from your Mac to the Google Gemini API. Google may receive the transcript, generated response, request metadata, IP address, and other technical data needed to provide the service. Your API key is stored in the macOS Keychain. Audio is not sent.</p>
+            <h3>OpenAI, Anthropic and OpenAI-compatible servers</h3>
+            <p>If you select OpenAI, Anthropic, or an OpenAI-compatible server, configure it, acknowledge its disclosure, and request generated outcomes, Chroniq sends the current editable transcript and generation instructions directly from your Mac to that provider: the OpenAI Responses API, the Anthropic Messages API, or the server address you enter. The provider may receive the transcript, generated response, request metadata, IP address, and other technical data needed to provide the service. OpenAI requests are sent with response storage disabled. A server you configure is operated by you or a third party you choose, under its own terms. API keys and optional server tokens are stored in the macOS Keychain, scoped to their provider or server. Audio is not sent.</p>
             <h3>Google Drive document publishing</h3>
             <p>If you connect Google Drive, select a destination folder, acknowledge the disclosure, and enable publishing, Chroniq sends meeting titles, generated artifacts, transcripts, meeting metadata, processing timings, and token-usage metrics directly to Google Drive and Google Docs. Chroniq requests only the <code>drive.file</code> permission, which limits access to files you select for, open with, or create through Chroniq.</p>
             <p>Chroniq stores the Google refresh token in the macOS Keychain and holds short-lived access tokens in memory. Non-secret folder and publishing state is stored locally. Disconnecting removes the local refresh token and attempts to revoke it, disables automation, and does not delete documents already created in your Drive.</p>
@@ -123,7 +129,7 @@
           <section id="sharing">
             <h2>7. Recipients and international transfers</h2>
             <p>We do not sell personal data. Data may be processed by service providers acting for us, including email and infrastructure providers, or disclosed where required by law, to protect rights and security, or in connection with a corporate transaction subject to appropriate safeguards.</p>
-            <p>Google, Hugging Face and its delivery providers, and GitHub may process data in countries outside the European Economic Area. Their own privacy terms describe the applicable transfer mechanisms. When Syscake uses processors outside the EEA, we use an available lawful transfer mechanism, such as an adequacy decision or standard contractual clauses, where required.</p>
+            <p>Google, OpenAI, Anthropic, an OpenAI-compatible server you configure, Hugging Face and its delivery providers, and GitHub may process data in countries outside the European Economic Area. Their own privacy terms describe the applicable transfer mechanisms. When Syscake uses processors outside the EEA, we use an available lawful transfer mechanism, such as an adequacy decision or standard contractual clauses, where required.</p>
           </section>
 
           <section id="retention">
@@ -169,14 +175,14 @@
     </main>
 
     <footer class="legal-footer">
-      <a class="footer-brand" href="./" aria-label="Chroniq home"><img src="assets/ChroniqLockup-2x.png" alt="Chroniq" width="205" height="55" /></a>
+      <a class="footer-brand" href="./" aria-label="Chroniq home"><img src="assets/ChroniqLockup-2x.png" alt="Chroniq" width="150" height="38" /></a>
       <div class="footer-links">
         <a href="privacy.html" aria-current="page">Privacy Policy</a>
         <a href="terms.html">Terms of Service</a>
         <a href="mailto:chroniq-support@syscake.it">Support</a>
       </div>
       <a class="syscake-credit" href="https://syscake.it/" target="_blank" rel="noopener noreferrer" aria-label="Made with love by Syscake. Visit Syscake website.">
-        <span>Made with love by Syscake ❤️</span><img src="assets/SyscakeLogoWhite.svg" alt="Syscake" width="136" height="40" />
+        <span>Made with love by Syscake ❤️</span><img src="assets/SyscakeLogoWhite.svg" alt="Syscake" width="108" height="32" />
       </a>
       <p class="copyright">© 2026 Syscake S.r.l. All rights reserved.</p>
     </footer>

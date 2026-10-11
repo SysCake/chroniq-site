@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#5250d1" />
+    <meta name="theme-color" content="#131318" />
     <meta
       name="description"
-      content="Chroniq records meetings on your Mac with live local transcription, editable outcomes, Gemini or local GGUF models, and optional Google Docs publishing."
+      content="Chroniq records your meetings on your Mac, transcribes them locally and turns them into summaries, decisions and action items with a local model, Gemini, OpenAI, Anthropic or your own server."
     />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Chroniq" />
-    <meta property="og:title" content="Chroniq — Meetings, kept close" />
+    <meta property="og:title" content="Chroniq — Your meetings, kept close" />
     <meta
       property="og:description"
-      content="Record deliberately. Transcribe locally. Turn conversations into durable outcomes."
+      content="Record on purpose. Transcribe on your Mac. Keep summaries, decisions and next steps you can check against the conversation."
     />
     <meta
       property="og:image"
@@ -22,309 +22,366 @@
     <meta property="og:url" content="https://chroniq.syscake.it/" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="https://chroniq.syscake.it/" />
-    <link rel="icon" href="assets/ChroniqAppIcon.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/favicon-v2.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" href="assets/favicon-v2-32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="assets/favicon-v2.svg" type="image/svg+xml" sizes="any" />
     <link rel="apple-touch-icon" href="assets/ChroniqAppIcon-1024.png" />
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Chroniq — Meetings, kept close</title>
+    <title>Chroniq — Your meetings, kept close</title>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="site-header" data-header>
+    <header class="site-header">
       <a class="brand" href="#top" aria-label="Chroniq home">
-        <img src="assets/ChroniqMarkReversed.svg" alt="" width="34" height="34" />
-        <img class="brand-wordmark" src="assets/ChroniqWordmark.svg" alt="Chroniq" width="86" height="23" />
+        <img src="assets/ChroniqMarkReversed.svg" alt="" width="28" height="28" />
+        <img class="brand-wordmark" src="assets/ChroniqWordmark.svg" alt="Chroniq" width="78" height="21" />
       </a>
       <nav aria-label="Primary navigation">
-        <a href="#privacy">Privacy</a>
+        <a href="#how">How it works</a>
         <a href="#outcomes">Outcomes</a>
-        <a href="#publishing">Drive</a>
+        <a href="#providers">Models</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#questions">FAQ</a>
       </nav>
-      <a
-        class="header-download js-release-link"
-        href="https://github.com/SysCake/chroniq-site/releases/download/v0.4.0/Chroniq-0.4.0-macOS-arm64.dmg"
-        data-release-link
-      >
+      <a class="header-download" href="https://github.com/SysCake/chroniq-site/releases/download/v0.4.0/Chroniq-0.4.0-macOS-arm64.dmg" data-release-link>
         <span data-release-label="compact">Download 0.4.0</span>
-        <span aria-hidden="true">↓</span>
       </a>
     </header>
 
     <main id="main">
-      <section class="hero" id="top" aria-labelledby="hero-title">
-        <div class="hero-grid" aria-hidden="true"></div>
-        <div class="hero-copy" data-hero-copy>
-          <img
-            class="hero-logo"
-            src="assets/ChroniqLockup-2x.png"
-            alt="Chroniq"
-            width="410"
-            height="110"
-          />
-          <h1 id="hero-title">Your meetings, kept close.<br />Your next steps, made clear.</h1>
-          <p>
-            Record microphone and system audio on your Mac, transcribe locally,
-            follow the conversation live, and create editable outcomes with Gemini or a local GGUF model.
+      <section class="hero on-night" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Meeting recorder for macOS</p>
+          <h1 id="hero-title">Your meetings,<br />kept close.</h1>
+          <p class="lead">
+            Chroniq records your voice and the meeting audio on your Mac, transcribes them
+            locally, and turns the conversation into a summary, decisions and action items
+            you can check against every word that was said.
           </p>
           <div class="hero-actions">
-            <a
-              class="button button-primary js-release-link"
-              href="https://github.com/SysCake/chroniq-site/releases/download/v0.4.0/Chroniq-0.4.0-macOS-arm64.dmg"
-              data-release-link
-            >
+            <a class="button button-primary" href="https://github.com/SysCake/chroniq-site/releases/download/v0.4.0/Chroniq-0.4.0-macOS-arm64.dmg" data-release-link>
               <span data-release-label>Download Chroniq 0.4.0</span>
-              <span class="button-arrow" aria-hidden="true">↘</span>
+              <span class="button-arrow" aria-hidden="true">↓</span>
             </a>
-            <a class="text-link" href="#recording">See how it works <span aria-hidden="true">↓</span></a>
+            <a class="text-link" href="#how">See how it works <span aria-hidden="true">→</span></a>
           </div>
-          <p class="requirements">
-            macOS 15+ · Apple silicon · Live transcription on macOS 26+
-          </p>
+          <p class="requirements">macOS 15 or later · Apple silicon · Signed and notarized</p>
         </div>
 
-        <figure class="product-stage" data-product-stage>
-          <div class="preview-controls" role="group" aria-label="Workspace screenshot appearance">
+        <figure class="shot hero-stage">
+          <div class="appearance-toggle" role="group" aria-label="App appearance in screenshots">
             <span>App appearance</span>
-            <button type="button" data-preview-appearance="light" aria-pressed="false">Light</button>
-            <button type="button" data-preview-appearance="dark" aria-pressed="true">Dark</button>
+            <div class="segmented">
+              <button type="button" data-preview-appearance="dark" aria-pressed="true">Dark</button>
+              <button type="button" data-preview-appearance="light" aria-pressed="false">Light</button>
+            </div>
           </div>
-          <a href="assets/workspace-dark.png" aria-label="View full-size Chroniq workspace screenshot">
-            <img data-screenshot="workspace" class="product-screenshot" src="assets/workspace-dark.png" alt="The real Chroniq review workspace showing a synthetic Northstar design review, with summary, key points, decisions, and action items." width="2880" height="2304" fetchpriority="high" />
+          <a class="shot-frame" href="assets/workspace-dark.png" aria-label="View the full-size Chroniq workspace screenshot">
+            <img data-screenshot="workspace" src="assets/workspace-dark.png" width="2360" height="1520" fetchpriority="high"
+              alt="The Chroniq workspace: a meeting archive grouped by day and an example design review with its summary, key points, decisions and action items." />
           </a>
-          <figcaption>Chroniq for macOS · Example meeting with fictional content</figcaption>
+          <figcaption>The Chroniq workspace · example meeting with fictional content</figcaption>
         </figure>
-      </section>
 
-      <section class="principle-band" aria-label="Chroniq principles">
-        <p>Explicit recording</p><span></span><p>Local transcription</p><span></span><p>Inspectable archive</p>
-      </section>
-
-      <section class="story-section recording-section" id="recording">
-        <div class="section-index" aria-hidden="true">01</div>
-        <div class="story-copy reveal">
-          <p class="eyebrow">Record with intent</p>
-          <h2>One click.<br />Two authoritative tracks.</h2>
-          <p>
-            Chroniq begins only when you tell it to. Microphone and system audio
-            remain separate, synchronized, and durably stored in an archive you can inspect.
-          </p>
-        </div>
-        <div class="track-visual reveal" aria-label="Separate synchronized microphone and system audio tracks">
-          <div class="track-ruler"><span>00:00</span><span>21:08</span><span>42:17</span></div>
-          <div class="wave-row"><strong>You</strong><div class="waveform wave-one"></div></div>
-          <div class="wave-row"><strong>Meeting</strong><div class="waveform wave-two"></div></div>
-          <div class="track-cursor"><span></span><small>42:17</small></div>
+        <div class="principles" aria-label="Principles">
+          <p>Recording starts only when you choose</p>
+          <p>Transcription runs on your Mac</p>
+          <p>Plain files you can inspect</p>
+          <p>No account, no analytics</p>
         </div>
       </section>
 
-      <section class="privacy-section" id="privacy">
-        <div class="privacy-field">
-          <div class="orbit orbit-one" aria-hidden="true"></div>
-          <div class="orbit orbit-two" aria-hidden="true"></div>
-          <img src="assets/ChroniqMarkReversed.svg" alt="" width="220" height="220" />
-        </div>
-        <div class="privacy-copy reveal">
-          <p class="eyebrow">Local by design</p>
-          <h2>Your audio<br />stays on your Mac.</h2>
-          <p>
-            Apple SpeechTranscriber follows the conversation live on macOS 26+.
-            NVIDIA Parakeet transcribes after recording on macOS 15+.
-            Choose a local GGUF model for offline outcomes, or Gemini to process
-            the editable transcript directly with your own API key.
-            Audio stays on your Mac. Local processing never falls back to the cloud.
-          </p>
-          <dl>
-            <div><dt>Audio transcription</dt><dd>On-device</dd></div>
-            <div><dt>Artifact generation</dt><dd>Local llama.cpp or Gemini</dd></div>
-            <div><dt>Source tracks</dt><dd>Local archive</dd></div>
-            <div><dt>Chroniq account</dt><dd>Not required</dd></div>
-          </dl>
-        </div>
-      </section>
-
-      <section class="outcomes-section" id="live">
-        <header class="section-heading reveal">
-          <p class="eyebrow">The conversation, as it happens</p>
-          <h2>Follow along.<br />Stay in the meeting.</h2>
-          <p>Apple SpeechTranscriber brings local live transcription to macOS 26+. Configure language assets once; Chroniq detects the meeting’s initial language, catches up and follows the conversation. You and Meeting stay distinct, with timestamps, live search and scroll you control.</p>
-          <p>Prefer to process afterwards? NVIDIA Parakeet remains available on macOS 15+. Both modes keep the original audio, so you can regenerate the transcript later.</p>
-        </header>
-        <figure class="workspace-detail reveal">
-          <div class="preview-controls" role="group" aria-label="Chroniq live transcript screenshot appearance">
-            <span>App appearance</span>
-            <button type="button" data-preview-appearance="light" aria-pressed="false">Light</button>
-            <button type="button" data-preview-appearance="dark" aria-pressed="true">Dark</button>
-          </div>
-          <a href="assets/live-dark.png" aria-label="View full-size Chroniq live transcript screenshot">
-            <img data-screenshot="live" src="assets/live-dark.png" alt="Chroniq live transcript. Native application components with entirely fictional data." width="2880" height="2304" loading="lazy" />
-          </a>
-          <figcaption>Live transcript · Simulated streaming state, fictional conversation</figcaption>
-        </figure>
-      </section>
-
-      <section class="story-section models-section" id="models">
-        <div class="section-index" aria-hidden="true">02</div>
-        <div class="story-copy reveal">
-          <p class="eyebrow">Choose how your artifacts are made</p>
-          <h2>Your provider.<br />Your model.</h2>
-          <p>Choose Gemini or run a compatible GGUF model locally with llama.cpp. Find and download models from public Hugging Face repositories inside Chroniq, or import your own GGUF files.</p>
-          <p>See download progress, pause and resume, and manage model storage in Settings. Downloads use the internet; installed local models generate artifacts offline. Google Drive publishing remains a separate choice.</p>
-          <p>The llama.cpp runtime runs in a sandboxed service. Model sources, file sizes and available license information are shown before download. Choose the size and context that suit your Mac.</p>
-          <p>Check the resource warning before choosing a model. Large models and long meetings can make a Mac with limited memory unresponsive. Settings show your hardware and estimated demand; you remain in control of model selection.</p>
-        </div>
-        <figure class="workspace-detail reveal">
-          <div class="preview-controls" role="group" aria-label="Model settings screenshot appearance">
-            <span>App appearance</span>
-            <button type="button" data-preview-appearance="light" aria-pressed="false">Light</button>
-            <button type="button" data-preview-appearance="dark" aria-pressed="true">Dark</button>
-          </div>
-          <a href="assets/models-dark.png" aria-label="View full-size Chroniq local model settings screenshot">
-            <img data-screenshot="models" src="assets/models-dark.png" alt="Chroniq GGUF model management with hardware information, Hugging Face downloads and local import. All installation state is fictional." width="1640" height="1480" loading="lazy" />
-          </a>
-          <figcaption>Native model management · Example installation state</figcaption>
-        </figure>
-      </section>
-
-      <section class="outcomes-section" id="outcomes">
-        <header class="section-heading reveal">
-          <p class="eyebrow">From conversation to clarity</p>
-          <h2>Every outcome stays<br />grounded in your transcript.</h2>
-          <p>Search and edit the timed transcript. Correct summaries, key points, decisions, actions and Facts directly, then copy one section or all outcomes together. Manual edits and their transcript provenance stay visible.</p>
-        </header>
-
-        <figure class="workspace-detail reveal">
-          <div class="preview-controls" role="group" aria-label="Transcript screenshot appearance">
-            <span>App appearance</span>
-            <button type="button" data-preview-appearance="light" aria-pressed="false">Light</button>
-            <button type="button" data-preview-appearance="dark" aria-pressed="true">Dark</button>
-          </div>
-          <a href="assets/transcript-dark.png" aria-label="View full-size Chroniq transcript screenshot">
-            <img data-screenshot="transcript" src="assets/transcript-dark.png" alt="Chroniq’s actual timed transcript with You and Meeting turns, search, copy, editing and regeneration from saved audio. Fictional meeting content." width="2880" height="2304" loading="lazy" />
-          </a>
-          <figcaption>Actual application interface. All meeting content shown is fictional.</figcaption>
-        </figure>
-
-        <figure class="workspace-detail reveal">
-          <div class="preview-controls" role="group" aria-label="Chroniq artifact editing screenshot appearance">
-            <span>App appearance</span>
-            <button type="button" data-preview-appearance="light" aria-pressed="false">Light</button>
-            <button type="button" data-preview-appearance="dark" aria-pressed="true">Dark</button>
-          </div>
-          <a href="assets/editing-dark.png" aria-label="View full-size Chroniq artifact editing screenshot">
-            <img data-screenshot="editing" src="assets/editing-dark.png" alt="Chroniq artifact editing. Native application components with entirely fictional data." width="2880" height="2304" loading="lazy" />
-          </a>
-          <figcaption>Edit outcomes in place · Saved content remains the source for copying and publishing</figcaption>
-        </figure>
-
-      </section>
-
-      <section class="publishing-section" id="publishing">
-        <div class="publishing-copy reveal">
-          <p class="eyebrow">Optional Google Drive publishing</p>
-          <h2>Publish the outcome.<br />Never the audio.</h2>
-          <p>
-            Connect Google, choose the folder, acknowledge what will be shared,
-            and enable automation explicitly. Chroniq updates only the document tabs it owns.
-          </p>
-          <p class="publishing-legal">
-            Learn how Google data is handled in our
-            <a href="privacy.html">Privacy Policy</a> and review the
-            <a href="terms.html">Terms of Service</a>.
-          </p>
-          <ul>
-            <li><span>✓</span> One document per meeting</li>
-            <li><span>✓</span> Summary, key points, decisions, actions, and source-linked Facts</li>
-            <li><span>✓</span> User-created tabs remain untouched</li>
-          </ul>
-        </div>
-
-        <figure class="document-visual reveal" aria-label="Illustration of the formatted document content published by Chroniq">
-          <figcaption>One Google Doc · Artifacts, Transcript, Metadata &amp; Metrics</figcaption>
-          <div class="document-page">
-            <h3>Northstar design review</h3>
-            <p class="document-subtitle">Artifacts</p>
-            <h4>Summary</h4>
-            <p>The team reviewed the Northstar prototype and agreed to focus the next iteration on a clearer first-run experience.</p>
-            <h4>Key Points</h4>
-            <ul><li>Navigation helped participants find their projects quickly.</li><li>First-run guidance should offer one clear next step.</li></ul>
-            <h4>Decisions</h4>
-            <ul><li>Test the revised prototype with five new participants.</li></ul>
-            <h4>Action Items</h4>
-            <ul><li>Prepare the updated prototype — Alex, Thursday.</li></ul>
-          </div>
-        </figure>
-      </section>
-
-      <section class="control-section">
+      <section class="section" id="how" aria-labelledby="how-title">
         <div class="section-heading reveal">
-          <p class="eyebrow">Built for correction</p>
-          <h2>Transparent when it works.<br />Actionable when it doesn’t.</h2>
+          <p class="eyebrow">How it works</p>
+          <h2 id="how-title">Record. Transcribe.<br />Understand.</h2>
         </div>
-        <div class="control-list">
-          <article class="reveal"><span>01</span><h3>Durable progress</h3><p>Processing state and partial work survive application restarts.</p></article>
-          <article class="reveal"><span>02</span><h3>Explicit remediation</h3><p>Blocked prerequisites, retries, and failure scope stay visible.</p></article>
-          <article class="reveal"><span>03</span><h3>Deliberate regeneration</h3><p>Replace outputs or rebuild everything from authoritative audio—your choice.</p></article>
+        <div class="steps">
+          <article class="reveal">
+            <span class="step-index">01</span>
+            <h3>Record on purpose</h3>
+            <p>Start from the toolbar, the menu bar or ⇧⌘R. Your microphone and the meeting audio are kept as two synchronized tracks and saved as lossless FLAC.</p>
+          </article>
+          <article class="reveal">
+            <span class="step-index">02</span>
+            <h3>Transcribe on your Mac</h3>
+            <p>Apple SpeechTranscriber follows the conversation live on macOS 26. NVIDIA Parakeet transcribes after the meeting on macOS 15. Audio never leaves your Mac.</p>
+          </article>
+          <article class="reveal">
+            <span class="step-index">03</span>
+            <h3>Understand what was decided</h3>
+            <p>A summary, key points, decisions, action items and source-linked facts, written by the model you choose and editable in place.</p>
+          </article>
         </div>
       </section>
 
-      <section class="outcomes-section" id="settings">
-        <header class="section-heading reveal">
-          <p class="eyebrow">Native on your Mac</p>
-          <h2>One workspace.<br />Your preferences.</h2>
-          <p>A normal macOS window, available from the Dock and Command-Tab, with Settings attached to the workspace. The menu bar stays within reach when the window closes. Optionally launch at login; recording always starts with your explicit action.</p>
-        </header>
-        <figure class="workspace-detail reveal">
-          <div class="preview-controls" role="group" aria-label="Chroniq settings screenshot appearance">
-            <span>App appearance</span>
-            <button type="button" data-preview-appearance="light" aria-pressed="false">Light</button>
-            <button type="button" data-preview-appearance="dark" aria-pressed="true">Dark</button>
+      <section class="section tinted" id="recording" aria-labelledby="recording-title">
+        <div class="split">
+          <div class="reveal">
+            <p class="eyebrow">Recording reminders</p>
+            <h2 id="recording-title">Never miss<br />a meeting.</h2>
+            <p class="lead">
+              Turn on reminders and Chroniq notices when another app — a call, a video
+              meeting — starts using your microphone. A quiet panel offers to record.
+              Nothing is captured until you click Start recording.
+            </p>
+            <ul class="checks">
+              <li>Off until you enable it in Settings</li>
+              <li>Chroniq reads only which app uses the microphone, never its audio</li>
+              <li>Ignore an app straight from the panel; allow it again in Settings</li>
+              <li>The menu bar shows the session, its timer and Stop at a glance</li>
+            </ul>
           </div>
-          <a href="assets/settings-dark.png" aria-label="View full-size Chroniq settings screenshot">
-            <img data-screenshot="settings" src="assets/settings-dark.png" alt="Chroniq settings. Native application components with entirely fictional data." width="1520" height="1404" loading="lazy" />
+          <div class="panel-stage reveal">
+            <figure class="shot">
+              <a class="shot-frame" href="assets/reminder-dark.png" aria-label="View the full-size recording reminder screenshot">
+                <img data-screenshot="reminder" src="assets/reminder-dark.png" width="1012" height="326" loading="lazy"
+                  alt="The recording reminder panel offering to start a recording, with an option to ignore the app using the microphone." />
+              </a>
+              <figcaption>Recording reminder</figcaption>
+            </figure>
+            <figure class="shot">
+              <a class="shot-frame" href="assets/menubar-dark.png" aria-label="View the full-size menu bar panel screenshot">
+                <img data-screenshot="menubar" src="assets/menubar-dark.png" width="732" height="612" loading="lazy"
+                  alt="The Chroniq menu bar panel with a Start Recording button, Open Archive, Settings and About." />
+              </a>
+              <figcaption>Menu bar panel</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="transcription" aria-labelledby="transcription-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Transcript</p>
+          <h2 id="transcription-title">Follow along.<br />Stay in the conversation.</h2>
+          <p class="lead">
+            You and Meeting stay distinct, with timestamps on every turn. Search the
+            conversation, correct a word in place, and regenerate everything from the
+            original audio whenever you want.
+          </p>
+        </div>
+        <figure class="shot reveal">
+          <div class="appearance-toggle" role="group" aria-label="App appearance in screenshots">
+            <span>App appearance</span>
+            <div class="segmented">
+              <button type="button" data-preview-appearance="dark" aria-pressed="true">Dark</button>
+              <button type="button" data-preview-appearance="light" aria-pressed="false">Light</button>
+            </div>
+          </div>
+          <a class="shot-frame" href="assets/transcript-dark.png" aria-label="View the full-size transcript screenshot">
+            <img data-screenshot="transcript" src="assets/transcript-dark.png" width="2360" height="1520" loading="lazy"
+              alt="The Chroniq transcript with timed turns for You and Meeting, search, regeneration and Read and Edit modes." />
           </a>
-          <figcaption>Integrated settings · Local transcription and provider choices</figcaption>
+          <figcaption>Timed transcript · fictional conversation</figcaption>
         </figure>
       </section>
 
-      <section class="control-section" id="questions">
-        <div class="section-heading reveal">
-          <p class="eyebrow">A few practical answers</p>
-          <h2>Before your first meeting.</h2>
-        </div>
-        <div class="faq-list">
-          <details><summary>What do I need for live transcription?</summary><p>Apple silicon and macOS 26 or later. Select Apple SpeechTranscriber in Settings and download assets for the languages you use. The initial meeting language is detected automatically from those enabled languages. Parakeet supports transcription after recording on macOS 15 or later, with an explicit model download.</p></details>
-          <details><summary>Can everything run locally?</summary><p>Yes. Audio transcription always runs on your Mac. Select a local GGUF model to generate outcomes with llama.cpp offline after installation. Model downloads contact Hugging Face or Apple’s asset services. Gemini and optional Google Docs publishing send the disclosed text content only when configured and requested; neither receives your audio.</p></details>
-          <details><summary>Can I correct or redo the results?</summary><p>Edit the transcript and every outcome, search the conversation, and copy individual sections or all artifacts. Regenerate outcomes from the current transcript, or regenerate everything from the two saved FLAC tracks. Explicit regeneration replaces manual edits in its stated scope.</p></details>
-          <details><summary>How do I install Chroniq?</summary><p>Open the downloaded DMG and drag Chroniq into Applications. Eject the mounted volume and open Chroniq from Applications. The app and DMG are signed and notarized. Chroniq runs on Apple silicon with macOS 15 or later.</p></details>
+      <section class="section tinted" id="outcomes" aria-labelledby="outcomes-title">
+        <div class="split">
+          <div class="reveal">
+            <p class="eyebrow">Outcomes</p>
+            <h2 id="outcomes-title">From conversation<br />to clear next steps.</h2>
+            <p class="lead">
+              Every meeting gets a summary, key points, decisions and action items.
+              Facts keep the exact quotes they come from, one click away in the transcript.
+            </p>
+            <ul class="checks">
+              <li>Edit any section in place; your edits and their dates stay visible</li>
+              <li>Tick off action items as you complete them</li>
+              <li>Copy a single section, or all outcomes at once</li>
+              <li>Regenerate deliberately, from the transcript or from the audio</li>
+            </ul>
+          </div>
+          <figure class="shot reveal">
+            <div class="appearance-toggle" role="group" aria-label="App appearance in screenshots">
+              <span>App appearance</span>
+              <div class="segmented">
+                <button type="button" data-preview-appearance="dark" aria-pressed="true">Dark</button>
+                <button type="button" data-preview-appearance="light" aria-pressed="false">Light</button>
+              </div>
+            </div>
+            <a class="shot-frame" href="assets/editing-dark.png" aria-label="View the full-size outcome editing screenshot">
+              <img data-screenshot="editing" src="assets/editing-dark.png" width="2360" height="1520" loading="lazy"
+                alt="Editing a meeting summary in place in Chroniq, with key points and decisions below." />
+            </a>
+            <figcaption>Editing the summary in place</figcaption>
+          </figure>
         </div>
       </section>
 
-      <section class="download-section" id="download">
-        <div class="download-mark" aria-hidden="true">
-          <img src="assets/ChroniqMarkReversed.svg" alt="" width="500" height="500" />
+      <section class="section" id="providers" aria-labelledby="providers-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Models</p>
+          <h2 id="providers-title">Your model.<br />Your choice.</h2>
+          <p class="lead">
+            Write outcomes with a model that runs on your Mac, or with the provider you
+            already use. Chroniq keeps the same instructions, checks and source citations
+            for all of them.
+          </p>
         </div>
-        <div class="download-copy reveal">
-          <img src="assets/ChroniqLockup-2x.png" alt="Chroniq" width="330" height="88" />
-          <h2>Keep the conversation.<br />Carry the work forward.</h2>
-          <a
-            class="button button-light js-release-link"
-            href="https://github.com/SysCake/chroniq-site/releases/download/v0.4.0/Chroniq-0.4.0-macOS-arm64.dmg"
-            data-release-link
-          >
+        <div class="providers reveal">
+          <article>
+            <span class="provider-tag local">On this Mac</span>
+            <h3>Local models</h3>
+            <p>GGUF models through llama.cpp, in a sandboxed service with no network access. Find them on Hugging Face from inside Chroniq or import your own.</p>
+          </article>
+          <article>
+            <span class="provider-tag">Your API key</span>
+            <h3>Google Gemini</h3>
+            <p>Gemini text models called directly from your Mac with your own API key.</p>
+          </article>
+          <article>
+            <span class="provider-tag">Your API key</span>
+            <h3>OpenAI</h3>
+            <p>The Responses API with your key. Requests are sent with response storage turned off.</p>
+          </article>
+          <article>
+            <span class="provider-tag">Your API key</span>
+            <h3>Anthropic</h3>
+            <p>Claude models through the Messages API, with your own key.</p>
+          </article>
+          <article>
+            <span class="provider-tag">Your server</span>
+            <h3>Compatible server</h3>
+            <p>Any OpenAI-compatible endpoint with JSON Schema, on your Mac or your network. Chroniq tests the model before using it.</p>
+          </article>
+        </div>
+        <p class="provider-note reveal">
+          Remote providers receive the transcript text and generation instructions — never
+          audio — and only after you acknowledge what will be sent. Keys stay in the macOS
+          Keychain. Chroniq never switches from a local model to a remote one on its own.
+        </p>
+        <div class="appearance-toggle reveal" role="group" aria-label="App appearance in screenshots">
+          <span>App appearance</span>
+          <div class="segmented">
+            <button type="button" data-preview-appearance="dark" aria-pressed="true">Dark</button>
+            <button type="button" data-preview-appearance="light" aria-pressed="false">Light</button>
+          </div>
+        </div>
+        <div class="duo">
+          <figure class="shot reveal">
+            <a class="shot-frame" href="assets/settings-dark.png" aria-label="View the full-size model settings screenshot">
+              <img data-screenshot="settings" src="assets/settings-dark.png" width="2360" height="1520" loading="lazy"
+                alt="Chroniq Settings, Artifacts pane: choosing the provider and model, with the API key and disclosure groups." />
+            </a>
+            <figcaption>Choosing a provider in Settings</figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <a class="shot-frame" href="assets/models-dark.png" aria-label="View the full-size local model screenshot">
+              <img data-screenshot="models" src="assets/models-dark.png" width="2360" height="1520" loading="lazy"
+                alt="Adding a local model in Chroniq: Hugging Face search results with downloads, variants and model cards." />
+            </a>
+            <figcaption>Finding a local model on Hugging Face</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section on-night" id="privacy" aria-labelledby="privacy-title">
+        <div class="split">
+          <div class="privacy-mark reveal" aria-hidden="true">
+            <img src="assets/ChroniqMarkReversed.svg" alt="" width="300" height="300" />
+          </div>
+          <div class="reveal">
+            <p class="eyebrow">Privacy</p>
+            <h2 id="privacy-title">Your audio never<br />leaves your Mac.</h2>
+            <p class="lead">
+              Transcription always runs locally. Meetings are stored as plain audio, text
+              and JSON files in a folder you choose, readable without Chroniq.
+            </p>
+            <dl class="facts-list">
+              <div><dt>Audio and transcription</dt><dd>On your Mac</dd></div>
+              <div><dt>Outcomes</dt><dd>Local model or your provider</dd></div>
+              <div><dt>Archive</dt><dd>Open files, your folder</dd></div>
+              <div><dt>Credentials</dt><dd>macOS Keychain</dd></div>
+              <div><dt>Account and analytics</dt><dd>None</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="publishing" aria-labelledby="publishing-title">
+        <div class="split">
+          <div class="reveal">
+            <p class="eyebrow">Optional Google Docs publishing</p>
+            <h2 id="publishing-title">Share the outcome.<br />Never the audio.</h2>
+            <p class="lead">
+              Connect Google Drive, choose a folder and acknowledge what will be shared.
+              Chroniq then keeps one document per meeting up to date, with outcomes,
+              transcript and metadata in separate tabs.
+            </p>
+            <ul class="checks">
+              <li>Access limited to files Chroniq creates or you select</li>
+              <li>Tabs you add yourself are never touched</li>
+              <li>Publishing stays independent of local processing</li>
+            </ul>
+            <p class="legal-note">
+              Read how Google data is handled in the <a href="privacy.html">Privacy Policy</a>
+              and the <a href="terms.html">Terms of Service</a>.
+            </p>
+          </div>
+          <figure class="document-visual reveal" aria-label="Illustration of the document Chroniq publishes">
+            <div class="document-page">
+              <h3>Northstar design review</h3>
+              <div class="document-tabs" aria-hidden="true"><span>Artifacts</span><span>Transcript</span><span>Metadata &amp; Metrics</span></div>
+              <h4>Summary</h4>
+              <p>The team reviewed the Northstar prototype and agreed to focus the next iteration on a clearer first-run experience, with updated screens on Thursday.</p>
+              <h4>Decisions</h4>
+              <ul><li>Test the revised prototype with five new participants.</li></ul>
+              <h4>Action items</h4>
+              <ul><li>Prepare the updated prototype — Alex, Thursday.</li></ul>
+            </div>
+            <figcaption>Illustration of a published document · fictional content</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section tinted" id="reliability" aria-labelledby="reliability-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Built for trust</p>
+          <h2 id="reliability-title">Transparent when it works.<br />Clear when it doesn’t.</h2>
+        </div>
+        <div class="rows">
+          <article class="reveal"><span>01</span><h3>Durable progress</h3><p>Recording survives interruptions and processing resumes after a restart, without losing finished work.</p></article>
+          <article class="reveal"><span>02</span><h3>Explicit fixes</h3><p>A missing setting or a provider error is shown with its cause and a single next step. Nothing starts behind your back.</p></article>
+          <article class="reveal"><span>03</span><h3>Deliberate regeneration</h3><p>Rewrite the outcomes from the current transcript, or rebuild everything from the original audio — always your choice.</p></article>
+        </div>
+      </section>
+
+      <section class="section" id="questions" aria-labelledby="questions-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Questions</p>
+          <h2 id="questions-title">Before your first meeting.</h2>
+        </div>
+        <div class="faq">
+          <details><summary>What do I need?</summary><p>A Mac with Apple silicon and macOS 15 or later. Live transcription with Apple SpeechTranscriber needs macOS 26 and the language assets you enable in Settings; NVIDIA Parakeet transcribes after recording on macOS 15 with a one-time model download.</p></details>
+          <details><summary>Can everything run without the cloud?</summary><p>Yes. Transcription is always local, and with a local GGUF model the outcomes are written on your Mac too, offline once the model is installed. Model downloads contact Hugging Face; Apple’s speech assets are managed by macOS.</p></details>
+          <details><summary>What do remote providers receive?</summary><p>Only the transcript text and the generation instructions, sent directly from your Mac with your own key after you acknowledge the disclosure. Never audio. Responses are checked before anything is saved.</p></details>
+          <details><summary>Do recording reminders listen to my meetings?</summary><p>No. When enabled, Chroniq checks once a second which apps are using a microphone input. It never opens an audio device or reads audio, and it records only after you click Start recording.</p></details>
+          <details><summary>Can I correct or redo the results?</summary><p>Edit the transcript and every outcome directly. Regenerate the outcomes from the current transcript, or everything from the two saved audio tracks. Regeneration replaces earlier edits only within the scope you confirm.</p></details>
+          <details><summary>How do I install Chroniq?</summary><p>Open the DMG, drag Chroniq onto Applications and open it from there. The app and the disk image are signed and notarized by Apple.</p></details>
+        </div>
+      </section>
+
+      <section class="section download" id="download" aria-labelledby="download-title">
+        <div class="reveal">
+          <img class="lockup" src="assets/ChroniqLockup-2x.png" alt="Chroniq" width="280" height="72" />
+          <h2 id="download-title">Keep the conversation.<br />Carry the work forward.</h2>
+          <a class="button button-light" href="https://github.com/SysCake/chroniq-site/releases/download/v0.4.0/Chroniq-0.4.0-macOS-arm64.dmg" data-release-link>
             <span data-release-label>Download Chroniq 0.4.0</span>
-            <span class="button-arrow" aria-hidden="true">↘</span>
+            <span class="button-arrow" aria-hidden="true">↓</span>
           </a>
-          <p class="download-meta" data-release-meta>Chroniq 0.4.0 · macOS 15+ · Apple silicon · Signed and notarized</p>
-          <p class="download-meta">Open the DMG · Drag Chroniq to Applications · Launch when you’re ready</p>
-          <a class="release-notes" href="https://github.com/SysCake/chroniq-site/releases/tag/v0.4.0">Release notes and checksum ↗</a>
+          <p class="download-meta" data-release-meta>Chroniq 0.4.0 · macOS 15 or later · Apple silicon · Signed and notarized</p>
+          <a class="release-notes" href="https://github.com/SysCake/chroniq-site/releases/tag/v0.4.0">Release notes and checksum</a>
         </div>
       </section>
     </main>
 
     <footer>
       <a class="footer-brand" href="#top" aria-label="Chroniq home">
-        <img src="assets/ChroniqLockup-2x.png" alt="Chroniq" width="205" height="55" />
+        <img src="assets/ChroniqLockup-2x.png" alt="Chroniq" width="150" height="38" />
       </a>
       <div class="footer-links">
         <a href="privacy.html">Privacy Policy</a>
@@ -332,21 +389,16 @@
         <a href="https://github.com/SysCake/chroniq-site/releases/tag/v0.4.0">Releases</a>
         <a href="mailto:chroniq-support@syscake.it">Support</a>
       </div>
-      <a
-        class="syscake-credit"
-        href="https://syscake.it/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Made with love by Syscake. Visit Syscake website."
-      >
+      <a class="syscake-credit" href="https://syscake.it/" target="_blank" rel="noopener noreferrer"
+        aria-label="Made with love by Syscake. Visit Syscake website.">
         <span>Made with love by Syscake ❤️</span>
-        <img src="assets/SyscakeLogoWhite.svg" alt="Syscake" width="136" height="40" />
+        <img src="assets/SyscakeLogoWhite.svg" alt="Syscake" width="108" height="32" />
       </a>
       <p class="copyright">© 2026 Syscake S.r.l. All rights reserved.</p>
     </footer>
 
     <noscript>
-      <div class="noscript-note">JavaScript is optional. Download buttons work without it.</div>
+      <div class="noscript-note">JavaScript is optional. Downloads and screenshots work without it.</div>
     </noscript>
     <script type="module" src="site.js"></script>
   </body>
